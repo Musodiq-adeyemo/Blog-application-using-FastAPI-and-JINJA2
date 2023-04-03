@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+    <title> Post Page</title>
+{% endblock %}
+
+{% block body %} 
+    <div class="bar-container1">
+        <h1 style="color: navy;"> Login Authentication</h1>
+        <h3 style="color: blue;text-align: center;">Authenticate your Account</h3>
+    </div>
+
+    <!-- Verify Token-->
+    <div style="display: flex;justify-content: center;">
+        <div class="col-xl-8">
+        <!-- Account settings card-->
+        <br>
+        <br>
+        <div class="card mb-4" style="margin-left: 20px;">
+            <div class="card-header" style="color: navy;font-weight: bold;font-size: 22px;text-align: center;border-bottom: 5px solid lightgray;">Verify Access Token</div>
+                <div class="card-body">
+                    <form>
+                        <!-- Token-->
+                        <div class="mb-3">
+                            <label style="color: red;font-weight: bold;font-size: 20px;" class="small mb-1" for="inputBio">Access Token(Please input your access token below.)</label>
+                            <br>
+                            <textarea class="form-control" id="token" name="token"  aria-describedby="Enter Content"placeholder="Your Acess Token" rows="7"></textarea>
+                        </div>
+                        <button onclick="websocketfun()">SEND</button>
+                        <ul id ="messages">
+
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        const websocketfun = () => {
+            let token = document.getElementById("token").value
+            let ws = new websocket('ws://192.168.18.202:8000/ws?token=${token}')
+            ws.onmessage = (event) => {
+                let messages = document.getElementById("messages")
+                let message = document.createElement('li')
+                let content = document.createTextNode(event.data)
+                message.appendChild(content)
+                messages.appendChild(message)
+            }
+        }
+    </script>
+{% endblock %}

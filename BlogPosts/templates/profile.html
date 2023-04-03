@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    PROFILE PAGE
+{% endblock %}
+
+{% block body %} 
+    <div style="margin-left: 50px;" class="bar-container1">
+        <h1 style="color: navy;"> Profile Page</h1>
+        <h3 style="color: blue;text-align: center;">User Profile</h3>
+    </div>
+    {% for user in users%}
+    {% if user.username == current_user %}
+    {% for profile in profiles %}
+    {% if user.id == profile.user_id %}
+    <div style="display: flex;justify-content: center;">
+        <div class="col-xl-8">
+          <!-- Account settings card-->
+          <br>
+          <div class="card mb-4" style="margin-left: 20px;">
+              <div class="card-header" style="color: navy;font-weight: bold;font-size: 30px;text-align: center;border-bottom: 5px solid lightgray;">User Profile</div>
+              <div class="card-body">
+                <div style="display: flex;justify-content: space-evenly;">
+                  <div>
+                    {% for image in images%}
+                    {% if image.profile_id == user.id %}
+                      <img  style="width:250px ;border-radius: 10px;margin: 10px;" src="static/profileimages/{{image.name}}" alt="{{image.name}}">
+                    {% endif %}
+                    {% endfor %}
+                  </div>
+                  <div >
+                    <h2 style="color: navy;font-weight: bold;text-align: center;">{{profile.lastname}} {{profile.firstname}} {{profile.othername}}</h2>
+                    <br>
+                    <P style="font-weight: bold;color: green;text-align: center;">{{profile.bio}}</P>
+                    <br>
+                    <h6 style="font-weight: bold;text-align: center;">No of Articles : <span style="color: red;">1</span></h6>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <hr><hr>
+                <div style="margin-left: 70px;">
+                  <h1 style="font-weight:bold;color: navy;font-size: 25px;text-align: left;">Username: <span style="color: green;padding-left: 100px;">{{user.username}}</span></h1>
+                  <h1 style="font-weight:bold;color: navy;font-size: 25px;text-align: left;">Firstname: <span style="color: green;padding-left: 110px;">{{profile.firstname}}</span></h1>
+                  <h1 style="font-weight:bold;color: navy;font-size: 25px;text-align: left;">Othername: <span style="color: green;padding-left: 110px;">{{profile.othername}}</span></h1>
+                  <h1 style="font-weight:bold;color: navy;font-size: 25px;text-align: left;">Lastname: <span style="color: green;padding-left: 110px;">{{profile.lastname}}</span></h1>
+                  <h1 style="font-weight:bold;color: navy;font-size: 25px;text-align: left;">User ID: <span style="color: green;padding-left: 180px;">{{user.id}}</span></h1>
+                  <h1 style="font-weight:bold;color: navy;font-size: 25px;text-align: left;">Email: <span style="color: green;padding-left: 100px;">{{user.email}}</span></h1>
+                  <h1 style="font-weight:bold;color: navy;font-size: 25px;text-align: left;">Location: <span style="color: green;padding-left: 150px;">{{profile.location}}</span></h1>
+                  <h1 style="font-weight:bold;color: navy;font-size: 25px;text-align: left;">Member Since: <span style="color: green;padding-left: 60px;">{{profile.created_at.strftime('%d-%m-%y')}}</span></h1>
+                  <h1 style="font-weight:bold;color: navy;font-size: 25px;text-align: left;">Gender: <span style="color: green;padding-left: 170px;">{{profile.gender}}</span></h1>
+                </div>
+                  
+              </div>
+          </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+{% endblock %}

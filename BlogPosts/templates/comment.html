@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+  <title> Edit Page</title>
+{% endblock %}
+
+{% block body %} 
+    <div style="margin-left: 50px;" class="bar-container1">
+        <h1 style="color: navy;"> Comment Page</h1>
+        <h3 style="color: blue;text-align: center;">Have Something to say about this post? Please proceed</h3>
+    </div>
+
+    <!-- contact page-->
+  <div style="display: flex;justify-content: center;">
+    <div class="col-xl-8">
+      <!-- Account settings card-->
+      <br>
+      <br>
+      <div class="card mb-4" style="margin-left: 20px;">
+          <div class="card-header" style="color: navy;font-weight: bold;font-size: 30px;text-align: center;border-bottom: 5px solid lightgrey;">Make Comment</div>
+          <div class="card-body">
+            <form action="/comment" method = 'POST'>
+              <div class="form-group">  
+                <label style="color: red;font-weight: bold;" for="user_id">User ID</label>
+                <input type="number" name="user_id" id="user_id" class="form-control" placeholder="Input your User ID">
+              </div>
+              <div class="form-group">
+                  <label style="color: red;font-weight: bold;" for="post_id">Post ID:</label>
+                  <input type="number" class="form-control" id="post_id" name="post_id"  aria-describedby="Enter POst ID" placeholder="Enter the Post ID" >
+              </div>
+              <div class="form-group">
+                  <label style="color: red;font-weight: bold;" for="comment">COMMENT</label>
+                  <textarea class="form-control" id="comment" name="comment"  aria-describedby="Write Message"placeholder="Write Your Message" rows="3"></textarea>
+              </div>
+              <button style="background: green;" type="submit">Send Message</button>
+  
+            </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

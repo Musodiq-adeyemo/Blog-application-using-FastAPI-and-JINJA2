@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    CONTACT PAGE
+{% endblock %}
+
+{% block body %} 
+    <div style="margin-left: 50px;" class="bar-container1">
+        <h1 style="color: navy;"> Contact Page</h1>
+        <h3 style="color: blue;text-align: center;">Want to get in touch? Fill out the form below to send me a message and i will get back as soon as possible.</h3>
+    </div>
+
+    <!-- contact page-->
+  <div style="display: flex;justify-content: center;">
+    <div class="col-xl-8">
+      <!-- Account settings card-->
+      <br>
+      <br>
+      <div class="card mb-4" style="margin-left: 20px;">
+          <div class="card-header" style="color: navy;font-weight: bold;font-size: 30px;text-align: center;border-bottom: 5px solid lightgrey;">Contact Us</div>
+          <div class="card-body">
+            <form action="#" method = 'POST'>
+              <div class="form-group">  
+                <label style="color: red;font-weight: bold;" for="Username">USERNAME</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Input your Username">
+              </div>
+              <div class="form-group">
+                  <label style="color: red;font-weight: bold;" for="email">EMAIL:</label>
+                  <input type="email" class="form-control" id="email" name="email"  aria-describedby="Enter Email" placeholder="Enter Your Email">
+              </div>
+              <div class="form-group">
+                  <label style="color: red;font-weight: bold;" for="message">MESSAGE</label>
+                  <textarea class="form-control" id="message" name="message"  aria-describedby="Write Message"placeholder="Write Your Message" rows="3"></textarea>
+              </div>
+              <button class="btn btn-primary" type="button">Send Message</button>
+  
+            </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

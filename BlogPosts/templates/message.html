@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+  <title> Edit Page</title>
+{% endblock %}
+
+{% block body %} 
+    <div style="margin-left: 50px;" class="bar-container1">
+        <h1 style="color: navy;"> Admin page</h1>
+        <h3 style="color: blue;text-align: center;">All the clients information</h3>
+    </div>
+
+    <div style="display: flex;justify-content: center;">
+        <div class="col-xl-8">
+          <br>
+          <br>
+          {% for message in messages%}
+          {% if current_user == 'Musawdeeq' %}
+          <div class="card mb-4" style="margin-left: 20px;">
+              <div class="card-header" style="color: navy;font-weight: bold;font-size: 30px;text-align: center;border-bottom: 5px solid lightgray;">Clients Messages</div>
+              <div class="card-body">
+                <h4 style="color: red;font-weight: bold;">Client Username : </h4>
+                <h5 style="color: blue;">{{message.username}}</h5>
+                <br>
+                <hr>
+                <h4 style="color: red;font-weight: bold;">Client Email : </h4>
+                <h5 style="color: green;">{{message.email}}</h5>
+                <br>
+                <hr>
+                <h4 style="color: red;font-weight: bold;">Client Message : </h4>
+                <p style="font-weight: bold;font-size: 20px;">{{message.message}}</p>
+              </div> 
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+    </div>
+{% endblock %}

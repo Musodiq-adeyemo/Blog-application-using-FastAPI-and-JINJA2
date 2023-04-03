@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body style="margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif;">
+    <div style="width: 100%; background: #efefef; border-radius: 10px; padding: 10px;">
+        <div style="margin: 0 auto; width: 90%; text-align: center;">
+            <h1 style="background-color: rgb(20, 38, 66); padding: 5px 10px; border-radius: 5px; color: white;">Successful Registration</h1>
+            <div style="margin: 30px auto; background: white; width: 40%; border-radius: 10px; padding: 50px; text-align: center;">
+                <h3 style="margin-bottom: 100px; font-size: 24px; color: black;">Hey {{request.username}}, you have successfully register your your account </h3>
+                <p style="margin-bottom: 30px; color: black;">The link below will re-direct you to the login page.</p>
+                <buttom><a style="display: block; margin: 0 auto; border: none; background-color: rgb(15, 42, 100); color: white; width: 50%; line-height: 24px; padding: 10px; font-size: 20px; border-radius: 10px; cursor: pointer; text-decoration: none;"
+                    href="http://127.0.0.1:8000/login"
+                    target="_blank"
+                >
+                    Login Account
+                </a></buttom>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
